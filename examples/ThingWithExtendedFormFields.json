@@ -1,0 +1,188 @@
+{
+	"@context": [
+		"https://www.w3.org/2019/wot/td/v1",
+		{
+			"http": "http://iotschema.org/protocol/http",
+			"iot": "http://iotschema.org"
+		}
+	],
+	"id": "http://localhost:8092/thing/81f1d73750e7495e",
+	"title": "Dimmer1_ch1",
+	"security": [
+		"bearer_sc"
+	],
+	"@type": [
+		"iot:DimmerControl",
+		"iot:Actuator"
+	],
+	"description": "Dimmer1_ch1",
+	"version": {
+		"instance": "0.1"
+	},
+	"created": "2019-09-03T15:30:10.778Z",
+	"modified": "2019-09-03T15:30:10.778Z",
+	"support": "https://www.fh-dortmund.de/de/fb/10/ikt/index.php",
+	"base": "https://example.com:443",
+	"properties": {
+		
+	},
+	"actions": {
+		"increase_1_steps": {
+			"safe": false,
+			"idempotent": false,
+			"forms": [
+				{
+					"op": [
+						"invokeaction"
+					],
+					"href": "http://localhost:8092/thing/81f1d73750e7495e/action/1d54de4cffe648ad/increase_1_steps",
+					"contentType": "application/json",
+					"subprotocol": "https",
+					"http:fieldValue:1": "text/plain",
+					"http:fieldValue:2": "text/plain",
+					"http:fieldName:1": "x-api-key",
+					"http:fieldValue:3": "text/plain",
+					"http:fieldName:2": "Authorization",
+					"http:fieldValue:4": "application/x-www-form-urlencoded",
+					"http:fieldName:3": "X-Host-Override",
+					"http:fieldName:4": "Content-Type"
+				}
+			],
+			"title": "increase 1 steps"
+		},
+		"decrease_1_steps": {
+			"safe": false,
+			"idempotent": false,
+			"forms": [
+				{
+					"op": [
+						"invokeaction"
+					],
+					"href": "http://localhost:8092/thing/81f1d73750e7495e/action/1d54de4cffe648ad/decrease_1_steps",
+					"contentType": "application/json",
+					"subprotocol": "https",
+					"http:fieldValue:1": "text/plain",
+					"http:fieldValue:2": "text/plain",
+					"http:fieldName:1": "x-api-key",
+					"http:fieldValue:3": "text/plain",
+					"http:fieldName:2": "Authorization",
+					"http:fieldValue:4": "application/x-www-form-urlencoded",
+					"http:fieldName:3": "X-Host-Override",
+					"http:fieldName:4": "Content-Type"
+				}
+			],
+			"title": "decrease 1 steps"
+		},
+		"decrease_break": {
+			"safe": false,
+			"idempotent": false,
+			"forms": [
+				{
+					"op": [
+						"invokeaction"
+					],
+					"href": "http://localhost:8092/thing/81f1d73750e7495e/action/1d54de4cffe648ad/decrease_break",
+					"contentType": "application/json",
+					"subprotocol": "https",
+					"http:fieldValue:1": "text/plain",
+					"http:fieldValue:2": "text/plain",
+					"http:fieldName:1": "x-api-key",
+					"http:fieldValue:3": "text/plain",
+					"http:fieldName:2": "Authorization",
+					"http:fieldValue:4": "application/x-www-form-urlencoded",
+					"http:fieldName:3": "X-Host-Override",
+					"http:fieldName:4": "Content-Type"
+				}
+			],
+			"title": "decrease break"
+		},
+		"increase_break": {
+			"safe": false,
+			"idempotent": false,
+			"forms": [
+				{
+					"op": [
+						"invokeaction"
+					],
+					"href": "http://localhost:8092/thing/81f1d73750e7495e/action/1d54de4cffe648ad/increase_break",
+					"contentType": "application/json",
+					"subprotocol": "https",
+					"http:fieldValue:1": "text/plain",
+					"http:fieldValue:2": "text/plain",
+					"http:fieldName:1": "x-api-key",
+					"http:fieldValue:3": "text/plain",
+					"http:fieldName:2": "Authorization",
+					"http:fieldValue:4": "application/x-www-form-urlencoded",
+					"http:fieldName:3": "X-Host-Override",
+					"http:fieldName:4": "Content-Type"
+				}
+			],
+			"title": "increase break"
+		},
+		"aus_ein": {
+			"input": {
+				"properties": {
+					"aus_ein": {
+						"title": "Aus/Ein",
+						"description": "The state to be set (true/false)",
+						"type": "boolean",
+						"instanceOf": "org.ict.model.wot.dataschema.BooleanSchema",
+						"readOnly": false,
+						"writeOnly": false
+					}
+				},
+				"title": "Aus/Ein",
+				"type": "object",
+				"instanceOf": "org.ict.model.wot.dataschema.ObjectSchema",
+				"readOnly": false,
+				"writeOnly": false
+			},
+			"safe": false,
+			"idempotent": false,
+			"forms": [
+				{
+					"op": [
+						"invokeaction"
+					],
+					"href": "http://localhost:8092/thing/81f1d73750e7495e/action/438d4895dec341a7/aus_ein",
+					"contentType": "application/json",
+					"subprotocol": "https",
+					"http:fieldValue:1": "text/plain",
+					"http:fieldValue:2": "text/plain",
+					"http:fieldName:1": "x-api-key",
+					"http:fieldValue:3": "text/plain",
+					"http:fieldName:2": "Authorization",
+					"http:fieldValue:4": "application/x-www-form-urlencoded",
+					"http:fieldName:3": "X-Host-Override",
+					"http:fieldName:4": "Content-Type"
+				}
+			],
+			"@type": [
+				"iot:TurnOn",
+				"iot:TurnOff"
+			],
+			"title": "Aus/Ein"
+		}
+	},
+	"securityDefinitions": {
+		"bearer_sc": {
+			"scheme": "bearer",
+			"instanceOf": "org.ict.model.wot.security.BearerSecurityScheme",
+			"in": "header",
+			"name": "bearer_sc",
+			"alg": "ES256",
+			"format": "jwt",
+			"authorization": "https://authorization.com"
+		}
+	},
+	"hardware": {
+		"href": {
+			"op": [
+				"readproperty"
+			],
+			"href": "http://localhost:8092/hardware/16f8a6466e4243b2",
+			"contentType": "application/json",
+			"subprotocol": "https"
+		}
+	}
+}

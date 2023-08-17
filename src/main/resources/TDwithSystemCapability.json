@@ -1,0 +1,143 @@
+{
+  "@context": [
+    "https://www.w3.org/2019/wot/td/v1",
+    {
+      "iot": "http://iotschema.org/",
+      "saref": "http://ontology.tno.nl/saref#",
+      "knx": "http://knx.org/ontology/",
+      "sosa": "http://www.w3.org/ns/sosa/",
+      "ssn": "http://www.w3.org/ns/ssn/",
+      "ssn-system": "http://www.w3.org/ns/ssn/systems/",
+      "schema": "http://schema.org/",
+      "qudt-unit-1-1": "http://qudt.org/1.1/vocab/unit#"
+    }
+  ],
+  "id": "https://example.com:443/MyLamp1",
+  "title": "My Lamp 1",
+  "security": [
+    "basic_sc"
+  ],
+  "@type": [
+    "http://ontology.tno.nl/saref#Device",
+    "http://ontology.tno.nl/saref#Light",
+    "http://iotschema.org/Actuator"
+  ],
+  "description": "A web connected color light",
+  "properties": {
+    "level": {
+      "observable": false,
+      "minimum": 0.0,
+      "maximum": 100.0,
+      "forms": [
+        {
+          "op": [
+            "readproperty"
+          ],
+          "href": "https://example.com:443/parameters/106f4202b77b42ff",
+          "contentType": "application/json",
+          "subprotocol": "https"
+        }
+      ],
+      "instanceOf": "org.ict.model.wot.dataschema.NumberSchema",
+      "@type": [
+        "https://www.w3.org/2019/wot/td#Property",
+        "http://iotschema.org/CurrentDimmer"
+      ],
+      "title": "CurrentDimmer",
+      "description": "Dimming value in percentage",
+      "type": "number",
+      "unit": "http://iotschema.org/Percent",
+      "readOnly": false,
+      "writeOnly": false
+    }
+  },
+  "actions": {
+    "off": {
+      "output": {
+        "instanceOf": "org.ict.model.wot.dataschema.BooleanSchema",
+        "title": "Off",
+        "type": "boolean",
+        "readOnly": false,
+        "writeOnly": false
+      },
+      "safe": false,
+      "idempotent": false,
+      "systemCapability": {
+        "@type": [
+          "http://www.w3.org/ns/ssn/Property",
+          "http://schema.org/PropertyValue"
+        ],
+        "systemProperty": {
+          "instanceOf": "org.ict.model.ssn.system.properties.Frequency",
+          "value": 5.0,
+          "unitCode": "qudt-unit-1-1:Second",
+          "@type": [
+            "http://www.w3.org/ns/ssn/systems/Frequency",
+            "http://www.w3.org/ns/ssn/Property",
+            "http://schema.org/PropertyValue"
+          ]
+        }
+      },
+      "forms": [
+        {
+          "op": [
+            "invokeaction"
+          ],
+          "href": "https://example.com:443/parameters/106f4202b77b41ff",
+          "contentType": "application/json",
+          "subprotocol": "https"
+        }
+      ],
+      "@type": [
+        "https://www.w3.org/2019/wot/td#Action"
+      ]
+    },
+    "on": {
+      "output": {
+        "instanceOf": "org.ict.model.wot.dataschema.BooleanSchema",
+        "title": "On",
+        "type": "boolean",
+        "readOnly": false,
+        "writeOnly": false
+      },
+      "safe": false,
+      "idempotent": false,
+      "systemCapability": {
+        "@type": [
+          "http://www.w3.org/ns/ssn/Property",
+          "http://schema.org/PropertyValue"
+        ],
+        "systemProperty": {
+          "instanceOf": "org.ict.model.ssn.system.properties.Frequency",
+          "value": 5.0,
+          "unitCode": "qudt-unit-1-1:Second",
+          "@type": [
+            "http://www.w3.org/ns/ssn/systems/Frequency",
+            "http://www.w3.org/ns/ssn/Property",
+            "http://schema.org/PropertyValue"
+          ]
+        }
+      },
+      "forms": [
+        {
+          "op": [
+            "invokeaction"
+          ],
+          "href": "https://example.com:443/parameters/106f4202b77b42ff",
+          "contentType": "application/json",
+          "subprotocol": "https"
+        }
+      ],
+      "@type": [
+        "https://www.w3.org/2019/wot/td#Action"
+      ]
+    }
+  },
+  "securityDefinitions": {
+    "basic_sc": {
+      "scheme": "basic",
+      "instanceOf": "org.ict.model.wot.security.BasicSecurityScheme",
+      "in": "header"
+    }
+  }
+}

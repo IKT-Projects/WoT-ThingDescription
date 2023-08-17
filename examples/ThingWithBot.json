@@ -1,0 +1,319 @@
+{
+	"type": [
+		"Site"
+	],
+	"@context": [
+		{
+			"namespace": "https://w3id.org/bot#"
+		},
+		{
+			"prefix": "rdf",
+			"namespace": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+		}
+	],
+	"@id": "https://example.com/v1/location/SenseDemoSite",
+	"containsZone": [
+		{
+			"type": [
+				"Building"
+			],
+			"@id": "https://example.com/v1/location/SenseDemoBuilding",
+			"hasStorey": [
+				{
+					"type": [
+						"Storey"
+					],
+					"@id": "https://example.com/v1/location/storey1",
+					"containsZone": [
+						{
+							"type": [
+								"Space"
+							],
+							"@id": "https://example.com/v1/location/room1",
+							"containsElement": [
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/light1"
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/light2"
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/light3"
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/tsensor1"
+								},
+								{
+									"@context": [
+										{
+											"namespace": "https://www.w3.org/2019/wot/td/v1"
+										},
+										{
+											"prefix": "saref",
+											"namespace": "http://ontology.tno.nl/saref#"
+										},
+										{
+											"prefix": "knx",
+											"namespace": "http://knx.org/ontology/"
+										}
+									],
+									"id": "https://ikt-systems.de:443/MyLamp1",
+									"title": "My Lamp 1",
+									"security": [
+										"basic_sc"
+									],
+									"@type": [
+										"Thing",
+										"iot:Actuator"
+									],
+									"description": "A web connected color light",
+									"properties": {
+										"level": {
+											"observable": false,
+											"minimum": 0.0,
+											"maximum": 100.0,
+											"forms": [
+												{
+													"op": [
+														"readproperty"
+													],
+													"href": "https://example.com/parameters/106f4202b77b42ff",
+													"contentType": "application/json",
+													"subprotocol": "https"
+												}
+											],
+											"instanceOf": "org.ict.model.wot.dataschema.NumberSchema",
+											"@type": [
+												"Property",
+												"iot:CurrentDimmer"
+											],
+											"title": "CurrentDimmer",
+											"description": "Dimming value in percentage",
+											"type": "number",
+											"unit": "iot:Percent",
+											"readOnly": false,
+											"writeOnly": false
+										}
+									},
+									"actions": {
+										"off": {
+											"output": {
+												"instanceOf": "org.ict.model.wot.dataschema.BooleanSchema",
+												"title": "Off",
+												"type": "boolean",
+												"readOnly": false,
+												"writeOnly": false
+											},
+											"safe": false,
+											"idempotent": false,
+											"forms": [
+												{
+													"op": [
+														"invokeaction"
+													],
+													"href": "https://example.com/parameters/106f4202b77b41ff",
+													"contentType": "application/json",
+													"subprotocol": "https"
+												}
+											],
+											"@type": [
+												"Action"
+											]
+										},
+										"on": {
+											"output": {
+												"instanceOf": "org.ict.model.wot.dataschema.BooleanSchema",
+												"title": "On",
+												"type": "boolean",
+												"readOnly": false,
+												"writeOnly": false
+											},
+											"safe": false,
+											"idempotent": false,
+											"forms": [
+												{
+													"op": [
+														"invokeaction"
+													],
+													"href": "https://example.com/parameters/106f4202b77b42ff",
+													"contentType": "application/json",
+													"subprotocol": "https"
+												}
+											],
+											"@type": [
+												"Action"
+											]
+										}
+									},
+									"securityDefinitions": {
+										"basic_sc": {
+											"in": "header",
+											"instanceOf": "org.ict.model.wot.security.BasicSecurityScheme",
+											"scheme": "basic"
+										}
+									},
+									"type": [
+										"Thing"
+									],
+									"@id": "https://ikt-systems.de:443/MyLamp1"
+								}
+							],
+							"adjacentElement": [
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/door1"
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/wall_east"
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/wall_west"
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/wall_north",
+									"hasSubElement": [
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_left_wn"
+										},
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_rigth_wn"
+										}
+									]
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/wall_south",
+									"hasSubElement": [
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_left_ws"
+										},
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_rigth_ws"
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": [
+								"Space"
+							],
+							"@id": "https://example.com/v1/location/stairwell1",
+							"adjacentElement": [
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/wall_east_out",
+									"hasSubElement": [
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_left_weo"
+										},
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_rigth_weo"
+										}
+									]
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/wall_east"
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/wall_north",
+									"hasSubElement": [
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_left_wn"
+										},
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_rigth_wn"
+										}
+									]
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/wall_south",
+									"hasSubElement": [
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_left_ws"
+										},
+										{
+											"type": [
+												"Element"
+											],
+											"@id": "https://example.com/v1/location/window_rigth_ws"
+										}
+									]
+								},
+								{
+									"type": [
+										"Element"
+									],
+									"@id": "https://example.com/v1/location/door1"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

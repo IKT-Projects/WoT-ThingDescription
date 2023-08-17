@@ -1,0 +1,4 @@
+/target/
+.attach_pid*
+hs_err_pid*.log
+/logs/
