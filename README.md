@@ -2,7 +2,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-by-developers.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-java.svg)](https://forthebadge.com)
 
-# A implementation of the Web of Things (WoT) Thing Description (W3C Candidate Recommendation 16 May 2019)
+# An implementation of the Web of Things (WoT) Thing Description (W3C Candidate Recommendation 16 May 2019)
 
 ### Introduction
 This project offers a Java class based implementation of the W3C Thing Descriptions.
